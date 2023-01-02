@@ -6,15 +6,13 @@ import com.bootcamp.java.w20.be_java_hisp_w20_g05.model.Post;
 import com.bootcamp.java.w20.be_java_hisp_w20_g05.model.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Repository
 public class PostRepository implements IPostRepository{
-    private Set<Post> posts = new HashSet<>();
-
+    private Set<Post> posts;
 
     @Override
     public boolean contains(Post post) {
