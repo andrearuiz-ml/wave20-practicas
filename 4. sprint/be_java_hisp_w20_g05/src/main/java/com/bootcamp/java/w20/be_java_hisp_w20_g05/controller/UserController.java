@@ -22,7 +22,6 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-
     @PostMapping ("/{userId}/follow/{userIdToFollow}")
     public ResponseEntity<String> followUser(@PathVariable int userId, @PathVariable int userIdToFollow) {
         userService.followUser(userId, userIdToFollow);
@@ -47,6 +46,7 @@ public class UserController {
         return new ResponseEntity<>(userService.getFollowedListDto(userId, order), HttpStatus.OK);
     }
 
+    //Lista la cantidad de seguidores de un vendedor.
     @GetMapping("/{userId}/followers/list")
     public ResponseEntity<FollowersBySellerDTO> getFollowersBySellerDto(@PathVariable int userId,
                                                                         @RequestParam(required = false) String order) {

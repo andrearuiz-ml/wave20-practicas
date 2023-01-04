@@ -38,6 +38,12 @@ public class PostRepository implements IPostRepository{
                 .findFirst().orElseThrow(() -> new IdNotFoundException(new MessageExceptionDTO("Elemento no encontrado")));
     }
 
+    //Retorna lista de post de un usuario
+    public List<Post> getPostsById(int userId)
+    {
+        return posts.stream().filter(u -> u.getUserId() == userId).collect(Collectors.toList());
+    }
+
     @Override
     public Set<Post> filterBy(String productName) {
         return posts.stream().filter(p -> p.getProduct().getName().toLowerCase()
